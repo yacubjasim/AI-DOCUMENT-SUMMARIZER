@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Document Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>🤖 AI Document Summarizer</h1>
+        <p class="subtitle">
+            Upload your PDF and get an AI-generated summary in seconds.
+        </p>
+
+        <form action="/summarize" method="POST" enctype="multipart/form-data">
+         
+            <label class="upload-box">
+                <input type="file" name="pdf" accept=".pdf" required>
+                📄 Choose PDF File
+            </label>
+
+            <button type="submit">
+                ✨ Generate Summary
+            </button>
+
+        </form>
+
+        {% if summary %}
+
+        <div class="result">
+
+            <h2>📑 AI Summary</h2>
+
+            <p>{{ summary }}</p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+</html>
